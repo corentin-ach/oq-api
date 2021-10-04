@@ -29,5 +29,7 @@ module.exports = {
     "quotes": ["error", "double"],
     "import/no-unresolved": 0,
     "linebreak-style": 0,
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
   },
 };

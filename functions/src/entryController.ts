@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {Response} from "express";
 import {db} from "./config";
 
@@ -14,7 +12,6 @@ type Request = {
     params: { entryId: string }
   }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const addEntry = async (req: Request, res: Response) => {
   const {title, text} = req.body;
   try {
@@ -32,7 +29,6 @@ export const addEntry = async (req: Request, res: Response) => {
       message: "entry added successfully",
       data: entryObject,
     });
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     res.status(500).json(error.message);
   }

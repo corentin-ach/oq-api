@@ -3,7 +3,7 @@ import {db} from "../config";
 
 type Spot = {
     name: string,
-    points: Array<number>,
+    coords: Array<number>,
     quality: number
   }
 
@@ -25,13 +25,13 @@ export const getAllSpots = async (req: Request, res: Response) => {
 };
 
 export const updateSpot = async (req: Request, res: Response) => {
-  const {body: {quality}, params: {entryId}} = req;
+  const {body: {name, coords, quality}, params: {entryId}} = req;
   try {
     const spot = db.collection("spots").doc(entryId);
     const currentSpot = (await spot.get()).data() || {};
     const updatedSpot = {
-      name: currentSpot.name,
-      points: currentSpot.points,
+      name: name || currentSpot.name,
+      coords: coords || currentSpot.coords,
       quality: quality || currentSpot.quality,
     };
     await spot.set(updatedSpot).catch((error) => {

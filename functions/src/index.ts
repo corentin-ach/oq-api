@@ -5,9 +5,7 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors({
-  origin: "https://us-central1-ocean-quality.cloudfunctions.net",
-}));
+app.use(cors());
 
 app.get("/", (req, res) => res.status(200).send("Hey there!"));
 app.get("/spots", getAllSpots );

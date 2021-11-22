@@ -6,6 +6,6 @@ const app = express();
 
 app.get("/", (req, res) => res.status(200).send("Hey there!"));
 app.get("/spots", getAllSpots );
-app.get("/spot/:entryId", updateSpot);
+app.patch("/spot/:entryId", updateSpot);
 
 exports.app = functions.https.onRequest(app);

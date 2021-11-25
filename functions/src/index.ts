@@ -1,8 +1,10 @@
 import * as functions from "firebase-functions";
 import express from "express";
-import {getAllSpots, updateSpot, getSpot} from "./controllers/spotsController";
 import cors from "cors";
 import helmet from "helmet";
+import {getAllSpots} from "./controllers/spots/getAllSpots";
+import {updateSpot} from "./controllers/spots/updateSpot";
+import {getSpot} from "./controllers/spots/getSpot";
 
 const app = express();
 

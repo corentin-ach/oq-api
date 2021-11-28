@@ -1,10 +1,17 @@
 import {Response} from "express";
 import {db} from "../../config";
 
+type Quality = {
+  status: boolean,
+  water: boolean,
+  plastic: boolean,
+  seal: boolean,
+}
+
 type Spot = {
     name: string,
     coords: Array<number>,
-    quality: number
+    quality: Quality
   }
 
 type Request = {

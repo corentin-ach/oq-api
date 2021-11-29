@@ -21,13 +21,14 @@ type Request = {
 
 
 export const updateSpot = async (req: Request, res: Response) => {
-  const {body: {name, coords, quality}, params: {entryId}} = req;
+  const {body: {quality}, params: {entryId}} = req;
   try {
     const spot = db.collection("spots").doc(entryId);
     const currentSpot = (await spot.get()).data() || {};
     const updatedSpot = {
-      name: name || currentSpot.name,
-      coords: coords || currentSpot.coords,
+      id: currentSpot.id,
+      name: currentSpot.name,
+      coords: currentSpot.coords,
       quality: quality || currentSpot.quality,
     };
     await spot.set(updatedSpot).catch((error) => {

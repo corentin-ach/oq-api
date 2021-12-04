@@ -2,7 +2,6 @@ import {Response} from "express";
 import {db} from "../../config";
 
 type Quality = {
-  status: boolean,
   water: boolean,
   plastic: boolean,
   seal: boolean,
@@ -11,7 +10,8 @@ type Quality = {
 type Spot = {
     name: string,
     coords: Array<number>,
-    quality: Quality
+    quality: Quality,
+    status: boolean,
   }
 
 type Request = {
@@ -19,6 +19,13 @@ type Request = {
     params: { entryId: string }
   }
 
+const computeStatus = (quality: Quality) => {
+  let status = false;
+  if (quality.water || quality.plastic || quality.seal) {
+    status = true;
+  } else status = false;
+  return status;
+};
 
 export const updateSpot = async (req: Request, res: Response) => {
   const {body: {quality}, params: {entryId}} = req;
@@ -30,6 +37,7 @@ export const updateSpot = async (req: Request, res: Response) => {
       name: currentSpot.name,
       coords: currentSpot.coords,
       quality: quality || currentSpot.quality,
+      status: computeStatus(quality),
     };
     await spot.set(updatedSpot).catch((error) => {
       return res.status(400).json({

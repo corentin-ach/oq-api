@@ -1,2 +1,2 @@
 # oq-api
-API du projet Ocean Quality
+API du projet Oavel

@@ -1,5 +1,5 @@
 import {Response} from "express";
-import {db} from "../config";
+import {db} from "../../config";
 
 type Quality = {
     water: boolean,
@@ -29,7 +29,7 @@ export const createVote = async (req: Request, res: Response) => {
       spot,
     };
     await vote.set(newVote);
-    res.status(200).send({
+    return res.status(200).send({
       status: "success",
       message: "entry added successfully",
       data: newVote,

@@ -1,20 +1,20 @@
 import dayjs from "dayjs";
 import {Response} from "express";
 import {db} from "../../config";
-import {Spot, Quality, Vote} from "../../types/spot";
+import {Spot, Quality} from "../../types/spot";
 
 type Request = {
     body: Spot,
     params: { entryId: string }
   }
 
-const computeStatus = (quality: Quality, votes: Array<Vote>) => {
+const computeStatus = (quality: Quality, votes: Array<Quality>) => {
   let status = false;
-  const lastDate: any = dayjs(quality.date);
+  const lastDate: any = dayjs(quality?.date);
   if (
-    (quality.water || quality.plastic || quality.seal) &&
+    (quality?.water || quality?.plastic || quality?.seal) &&
     (votes.some((el) =>
-      dayjs(el.date).diff(lastDate, "day") === 2))
+      lastDate.diff(dayjs(el?.date), "day") <= 3))
   ) {
     status = true;
   } else status = false;
@@ -26,13 +26,14 @@ export const updateSpot = async (req: Request, res: Response) => {
   try {
     const spot = db.collection("spots").doc(entryId);
     const currentSpot = (await spot.get()).data() || {};
+    console.log("quality", quality);
     const updatedSpot = {
       id: currentSpot.id,
       name: currentSpot.name,
       coords: currentSpot.coords,
       quality: computeStatus(quality, currentSpot.votes) ?
       quality : currentSpot.quality,
-      votes: currentSpot.votes.push(quality),
+      votes: [...currentSpot.votes, quality],
       status: computeStatus(quality, currentSpot.votes),
     };
     await spot.set(updatedSpot).catch((error) => {

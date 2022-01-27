@@ -1,11 +1,6 @@
 import {Response} from "express";
 import {db} from "../../config";
-
-type Spot = {
-    name: string,
-    coords: Array<number>,
-    quality: number
-  }
+import {Spot} from "../../types/spot";
 
 type Request = {
     body: Spot,

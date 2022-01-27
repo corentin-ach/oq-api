@@ -1,0 +1,14 @@
+{
+  "client": {
+    "email": "firebase-adminsdk-pu17k@ocean-quality.iam.gserviceaccount.com"
+  },
+  "private": {
+    "key": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCME7EwmFgYUkTt\\nz1DDXfo3+WJGfZfgg8esGfaQTGcQsMP6tCh9Xlybh/gaaBBQk2CgiNuwOJwV1NLE\\niJuoVTcyDLWjy2EZrYinU8ieXged8Jdz1S6kuuYxiqrikNQfMBQmsYt8N/BPd7hf\\nIDrIF1GHs3YKVRv28sVa4ehWOldjBhWEaQCR8DBcdXBK3elbtjj4acdRsj7KPues\\n85Vueh+xrU69mDS2nqGvp0slW6/OGvfLh8ZTAdHe/nZW2muyhu2rTRwMbxBltgp5\\n4mNuarv1YUyCXKzVKzyp9XHxUISmUIHEJ14f5iiyjcxAoUEbEqY6Bj/H+0Z/llup\\ng0lxL3lRAgMBAAECggEABNFlk6h3X6Jh+A42KfrlkRjNC+PxSu0SO4w3qjFsJxhC\\n+WPKc7tz5hT+0EVNifPzvu0BWQLHDZiT6+O1+0vipnnmiONFLCytlotf1/o5R77f\\nerUcEfLsWX5g3JxpWC3fasN9d6pcSknYIXKtyujDncfReTWbTPrL/BFpAodzSFBy\\nrUxZ4VIH/Id+QbehoWDiC2wELi1Y7LtdZOeWXK1eOnAG5mRyQjK6LnbMhil5cyio\\n5xJTNPFa/IBeYuOP5UaYEvSgK9BGx9qk82rFAedOGPes73qvCcsUPxDAe9yE7uLm\\nrBrPQ/7UOFPzvvZ8LgNfikpxqVGSc5toUcT8fezSBQKBgQDB/XBC3S6JxvT48CjT\\n7gSeUVEGXkvAwDFMNpFZsrYYTdptOo0Pw2l1RmLXDzG1rdm0zWihuslJonN3Bma9\\np5+XUl4mch6KX0XdcaiPEvVz61GD87yHypulELankzwDB+jKlyk4kBWsHd8JRmn5\\n4HG7PpwRYB7p4OK7mopEhwzmzQKBgQC42nJkZjG8djRny1Wbak7TUStveNE3y0BF\\n11D95NQgZaPnoBbL3Kvzgj+8bag8OvcQ826GIuugRzNl1lIZdmoN77CRTmCa/2wp\\nJCCXhB6uBWWleyQHkqjBIZQb2Hd1gY4OImSpm2kL/+8eOlPQKJUOKIUtHA5KMK5r\\nuSA0Y/m0lQKBgQCh7h6xkdPxKmT/D+nkzoCIbzSFbl0prsT362z1RRp/uy0jlIZ/\\nrAzx2ilTf9ls4IwkQnqe1j6D+tkLeAp3Md8j/5ub2BLqSpEVQnUDyT2e38WRsfmk\\nGFpINWVjCKJFnWqTAg9kqdGNdPni0iZQcSw+swqv7l6fuBtLorrcbSc12QKBgGZ9\\nN09TGeBT6Vpi8mPo3StspZh4dAdrOYd/ifg7FyGfOPEDYaBGCVBJtuzSH6TFTJap\\nYW4djmafE3AzE/HqJYL0kgD+Y7GMTHvC/A8FwbzaYTEOxTstpULvSx7lNdaArjJH\\n/2fKMsPkcr9ft3iCB6KB9NS96W5Y71vqmGBzzc7BAoGAMOIhgxsBtK8eK/0tYuZW\\ndMutYb7gxL703Iu4LNlwtRtVIwcHTRn1MHuQ8hRMI48UMm2TZVV2idfY8t27SW9X\\nUPtQ6c+uFvdcJjivwdJb2w+iYw5C+bOv/7Ig/PYJqjNQTHAOXFSQwK6j/iY2WVha\\nCtJdOH9NnNtfePm49UUiQTg=\\n-----END PRIVATE KEY-----\\n"
+  },
+  "clien": {
+    "email": "firebase-adminsdk-pu17k@ocean-quality.iam.gserviceaccount.com"
+  },
+  "project": {
+    "id": "ocean-quality"
+  }
+}

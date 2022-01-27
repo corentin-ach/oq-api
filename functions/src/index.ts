@@ -1,6 +1,5 @@
 import * as functions from "firebase-functions";
 import express from "express";
-import {createVote} from "./controllers/votes/createVote";
 
 import cors from "cors";
 import helmet from "helmet";
@@ -18,7 +17,6 @@ app.get("/", (req, res) => res.status(200).send("Hey there!"));
 app.get("/spots", getAllSpots );
 app.patch("/spot/:entryId", updateSpot);
 app.get("/spot/:entryId", getSpot);
-app.post("/votes", createVote);
 app.get("/notion", getNotion);
 
 exports.app = functions.https.onRequest(app);

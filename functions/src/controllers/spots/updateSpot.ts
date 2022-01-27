@@ -1,27 +1,21 @@
+import dayjs from "dayjs";
 import {Response} from "express";
 import {db} from "../../config";
-
-type Quality = {
-  water: boolean,
-  plastic: boolean,
-  seal: boolean,
-}
-
-type Spot = {
-    name: string,
-    coords: Array<number>,
-    quality: Quality,
-    status: boolean,
-  }
+import {Spot, Quality, Vote} from "../../types/spot";
 
 type Request = {
     body: Spot,
     params: { entryId: string }
   }
 
-const computeStatus = (quality: Quality) => {
+const computeStatus = (quality: Quality, votes: Array<Vote>) => {
   let status = false;
-  if (quality.water || quality.plastic || quality.seal) {
+  const lastDate: any = dayjs(quality.date);
+  if (
+    (quality.water || quality.plastic || quality.seal) &&
+    (votes.some((el) =>
+      dayjs(el.date).diff(lastDate, "day") === 2))
+  ) {
     status = true;
   } else status = false;
   return status;
@@ -36,8 +30,10 @@ export const updateSpot = async (req: Request, res: Response) => {
       id: currentSpot.id,
       name: currentSpot.name,
       coords: currentSpot.coords,
-      quality: quality || currentSpot.quality,
-      status: computeStatus(quality),
+      quality: computeStatus(quality, currentSpot.votes) ?
+      quality : currentSpot.quality,
+      votes: currentSpot.votes.push(quality),
+      status: computeStatus(quality, currentSpot.votes),
     };
     await spot.set(updatedSpot).catch((error) => {
       return res.status(400).json({
@@ -48,7 +44,7 @@ export const updateSpot = async (req: Request, res: Response) => {
 
     return res.status(200).json({
       status: "success",
-      message: "entry updated successfully",
+      message: "spot updated successfully",
       data: updatedSpot,
     });
   } catch (error: any) {

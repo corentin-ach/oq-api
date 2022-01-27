@@ -1,11 +1,6 @@
 import {Response} from "express";
 import {db} from "../../config";
-
-type Spot = {
-    name: string,
-    coords: Array<number>,
-    quality: number
-  }
+import {Spot} from "../../types/spot";
 
 type Request = {
     body: Spot,
@@ -21,6 +16,8 @@ export const getSpot = async (req: Request, res: Response) => {
       name: currentSpot.name,
       coords: currentSpot.coords,
       quality: currentSpot.quality,
+      status: currentSpot.status,
+      votes: currentSpot.votes,
     };
     return res.status(200).json({
       status: "success",

@@ -8,6 +8,12 @@ type Request = {
     params: { entryId: string }
   }
 
+/*
+computeStatus check if at least one value for quality is true
+check also if there are multiple vote in same range of date
+if these conditions are true, then status is true
+*/
+
 const computeStatus = (quality: Quality, votes: Array<Quality>) => {
   let status = false;
   const lastDate: any = dayjs(quality?.date);

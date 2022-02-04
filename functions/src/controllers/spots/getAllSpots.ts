@@ -27,9 +27,12 @@ export const getAllSpots = async (req: Request, res: Response) => {
         coords: doc.data().coords,
         quality: {
           date: doc.data().quality.date,
-          water: computeStatus(doc.data().quality) ? true : false,
-          plastic: computeStatus(doc.data().quality) ? true : false,
-          seal: computeStatus(doc.data().quality) ? true : false,
+          water: computeStatus(doc.data().quality) ?
+          doc.data().quality.water : false,
+          plastic: computeStatus(doc.data().quality) ?
+          doc.data().quality.plastic : false,
+          seal: computeStatus(doc.data().quality) ?
+          doc.data().quality.seal : false,
         },
         status: computeStatus(doc.data().quality),
         votes: doc.data().votes,

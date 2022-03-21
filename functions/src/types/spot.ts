@@ -11,6 +11,7 @@ export type Vote = {
   }
 
 export type Spot = {
+    id: string,
     name: string,
     coords: Array<number>,
     quality: Quality,

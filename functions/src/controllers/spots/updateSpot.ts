@@ -32,15 +32,16 @@ export const updateSpot = async (req: Request, res: Response) => {
   try {
     const spot = db.collection("spots").doc(entryId);
     const currentSpot = (await spot.get()).data() || {};
-    console.log("quality", quality);
     const updatedSpot = {
       id: currentSpot.id,
       name: currentSpot.name,
       coords: currentSpot.coords,
       quality: computeStatus(quality, currentSpot.votes) ?
+      quality : (!quality?.water && !quality?.plastic && !quality?.seal) ?
       quality : currentSpot.quality,
       votes: [...currentSpot.votes, quality],
-      status: computeStatus(quality, currentSpot.votes),
+      status: computeStatus(quality, currentSpot.votes) ? true :
+      (!quality?.water && !quality?.plastic && !quality?.seal) ? false : false,
     };
     await spot.set(updatedSpot).catch((error) => {
       return res.status(400).json({
